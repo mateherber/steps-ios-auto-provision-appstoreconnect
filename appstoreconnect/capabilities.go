@@ -28,6 +28,7 @@ const (
 	Homekit                        CapabilityType = "HOMEKIT"
 	WirelessAccessoryConfiguration CapabilityType = "WIRELESS_ACCESSORY_CONFIGURATION"
 	SignInWithApple                CapabilityType = "APPLE_ID_AUTH"
+	ParentApplicationIdentifiers   CapabilityType = "PARENT_APPLICATION_IDENTIFIERS"
 	ApplePay                       CapabilityType = "APPLE_PAY"
 	DataProtection                 CapabilityType = "DATA_PROTECTION"
 	Sirikit                        CapabilityType = "SIRIKIT"
@@ -80,7 +81,8 @@ var ServiceTypeByKey = map[string]CapabilityType{
 	"com.apple.developer.siri":                            Sirikit,
 	"com.apple.developer.pass-type-identifiers":           Wallet,
 	"com.apple.external-accessory.wireless-configuration": WirelessAccessoryConfiguration,
-	"com.apple.developer.applesignin": 					   SignInWithApple,
+	"com.apple.developer.applesignin":                     SignInWithApple,
+	"com.apple.developer.parent-application-identifiers":  ParentApplicationIdentifiers,
 	"com.apple.developer.default-data-protection":         DataProtection,
 	"com.apple.developer.icloud-services":                 ICloud,
 	// does not appear on developer portal
