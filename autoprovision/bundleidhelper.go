@@ -133,13 +133,19 @@ func appIDName(bundleID string) string {
 func CreateBundleID(client *appstoreconnect.Client, bundleIDIdentifier string) (*appstoreconnect.BundleID, error) {
 	appIDName := appIDName(bundleIDIdentifier)
 
+	var bundleIDPlatform appstoreconnect.BundleIDPlatform
+	if strings.HasSuffix(bundleIDIdentifier, "Clip") {
+		bundleIDPlatform = appstoreconnect.Universal
+	} else  {
+		bundleIDPlatform = appstoreconnect.IOS
+	}
 	r, err := client.Provisioning.CreateBundleID(
 		appstoreconnect.BundleIDCreateRequest{
 			Data: appstoreconnect.BundleIDCreateRequestData{
 				Attributes: appstoreconnect.BundleIDCreateRequestDataAttributes{
 					Identifier: bundleIDIdentifier,
 					Name:       appIDName,
-					Platform:   appstoreconnect.IOS,
+					Platform:   bundleIDPlatform,
 				},
 				Type: "bundleIds",
 			},
