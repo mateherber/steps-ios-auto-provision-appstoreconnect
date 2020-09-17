@@ -264,8 +264,10 @@ func WriteProfile(profile appstoreconnect.Profile) error {
 		ext = ".mobileprovision"
 	case appstoreconnect.MacOS:
 		ext = ".provisionprofile"
+	case appstoreconnect.Universal:
+		ext = ".mobileprovision"
 	default:
-		return fmt.Errorf("failed to write profile to file, unsupported platform: (%s). Supported platforms: %s, %s", profile.Attributes.Platform, appstoreconnect.IOS, appstoreconnect.MacOS)
+		return fmt.Errorf("failed to write profile to file, unsupported platform: (%s). Supported platforms: %s, %s, %s", profile.Attributes.Platform, appstoreconnect.IOS, appstoreconnect.MacOS, appstoreconnect.Universal)
 	}
 
 	name := path.Join(profilesDir, profile.Attributes.UUID+ext)
